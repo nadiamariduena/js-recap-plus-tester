@@ -154,12 +154,12 @@ Error: Sum functions sucks
 <br>
 <br>
 
-### WE GOT THE ERROR but the way we get the error can be more "USER friendly" for that we will use _JEST_
+##### WE GOT THE ERROR but the way we get the error can be more "USER friendly" for that we will use _JEST_
 
 <br>
 
 ## TESTING the previous SUM function , now with JEST
 
-- CLICK ON THE LINK TO CONTINUE the exercise
+- CLICK ON THE LINK to see the description
 
-[JEST INTRO](docs/JEST-intro.md)
+[JEST-INTRO](../docs/JEST-intro.md)
