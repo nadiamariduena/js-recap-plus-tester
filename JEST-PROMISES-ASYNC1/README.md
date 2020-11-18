@@ -1,4 +1,4 @@
-# JAVASCRIPT recapitulation 🌞
+# JAVASCRIPT RECAP and BASICS of SOFTWARE testing
 
 ## LESSONS by Robert Ristock from DCI
 

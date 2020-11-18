@@ -184,7 +184,7 @@ Ran all test suites.
 <br>
 <br>
 
-## DEPLICATE THE FUNCTIONS TO TEST IT
+## DUPLICATE THE FUNCTIONS TO TEST IT
 
 - ADD IT LIKE SO
 - replace the first function (back to normal)
@@ -224,7 +224,7 @@ test("should subtract two numbers", () => {
   ● should sum up  two numbers
 ```
 
-#### this is the result when the functions are working FINE
+#### THE RESULT when the functions are working FINE
 
 ```javascript
  PASS  ./index.test.js
@@ -238,7 +238,7 @@ Time:        1.451 s
 Ran all test suites.
 ```
 
-#### this is the result when the functions have any kind of error
+#### THE RESULT when the functions have any kind of error
 
 ```javascript
  FAIL  ./index.test.js
@@ -274,7 +274,7 @@ Time:        1.411 s
 Ran all test suites.
 ```
 
-### the error
+### THE ISSUE
 
 ```javascript
 // lib.js
@@ -286,3 +286,90 @@ let result = subtract(10, 5);
 > WE CREATED 2 FUNCTIONs 1 to sum, and the other to SUBTRACT , i PURPOSELY
 > placed a division symbol inside the subtract function, so we divided 10 / 5 and the result was 2
 > so when jest scanned the functions it read that we "expected 5" and there was the issue.
+
+### CONCLUSION
+
+##### TESTING ASSURES STABILITY OF ALREADY CODED FEATURES
+
+<br>
+<hr>
+<br>
+
+### SOME PROGRAMMING JARGON
+
+<br>
+
+#### THE FOLLOWING IS CALLED
+
+##### _"TEST CASE OR UNIT TEST"_
+
+- because it stands alone
+
+```javascript
+// TEST CASE OR ( UNIT TEST )
+//
+test("should sum up two numbers", () => {
+  let result = sum(10, 5); // expectation: 15
+  expect(result).toBe(15);
+  //but here we are telling that the result will be 5
+  // even if we know that the result is 15 but it s just for error purposes
+});
+```
+
+<br>
+
+#### THE FOLLOWING IS CALLED
+
+##### _"TEST SUITE"_
+
+- COLLECTION of test cases that logically belong together
+
+```javascript
+test("should sum up two numbers", () => {
+  let result = sum(10, 5);
+  expect(result).toBe(15);
+});
+//
+
+test("should subtract two numbers", () => {
+  let result = subtract(10, 5);
+  expect(result).toBe(5);
+});
+```
+
+##### There are 2 ways of grouping different test suites, you can either separate them in different files or group them in a function in the same file.
+
+- _YOU CAN DO THAT BY USING "DESCRIBE"_
+
+##### THE DESCRIBE FUNCTION
+
+```javascript
+describe("testing suite collections", () => {
+  test("should sum up two numbers", () => {
+    let result = sum(10, 5);
+    expect(result).toBe(15);
+  });
+  //
+
+  test("should subtract two numbers", () => {
+    let result = subtract(10, 5);
+    expect(result).toBe(5);
+  });
+});
+```
+
+##### RESULT
+
+```javascript
+ PASS  ./index.test.js
+  testing suite collections //here you see the name grouping the 2 functions
+    ✓ should sum up two numbers (2 ms)
+    ✓ should subtract two numbers
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.894 s, estimated 1 s
+Ran all test suites.
+
+```

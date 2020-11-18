@@ -1,14 +1,21 @@
 const { sum, subtract } = require("./lib");
 
-test("should sum up two numbers", () => {
-  let result = sum(10, 5); // expectation: 15
-  expect(result).toBe(15);
-  //but here we are telling that the result will be 5
-  // even if we know that the result is 15 but it s just for error purposes
-});
+// TEST SUITE
 //
+// COLLECTION of test cases that logically
+//  belong together
+//
+describe("testing suite collections", () => {
+  //
+  //  TEST CASE OR ( UNIT TEST )
+  test("should sum up two numbers", () => {
+    let result = sum(10, 5);
+    expect(result).toBe(15);
+  });
+  //
 
-test("should subtract two numbers", () => {
-  let result = subtract(10, 5); // expectation: 15
-  expect(result).toBe(5);
+  test("should subtract two numbers", () => {
+    let result = subtract(10, 5);
+    expect(result).toBe(5);
+  });
 });
