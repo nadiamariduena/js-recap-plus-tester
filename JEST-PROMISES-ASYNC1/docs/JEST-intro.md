@@ -148,12 +148,13 @@ Time:        0.998 s, estimated 1 s
 Ran all test suites.
 ```
 
-### make an error on purpose
+### MAKE an error on purpose
 
 - TYPE that you can get , 6 for example
 - 10-5 is not 6 , so lets see if it works
 
 ```javascript
+//  SO THIS RESULT IS UNSUCCESSFUL
   ✕ should sum up to  numbers (7 ms)
 
   ● should sum up to  numbers
@@ -178,3 +179,110 @@ Snapshots:   0 total
 Time:        1.321 s
 Ran all test suites.
 ```
+
+<br>
+<br>
+<br>
+
+## DEPLICATE THE FUNCTIONS TO TEST IT
+
+- ADD IT LIKE SO
+- replace the first function (back to normal)
+
+```javascript
+// lib.js
+const sum = (a, b) => {
+  return a + b;
+};
+const substract = (a, b) => {
+  return a - b;
+};
+```
+
+##### NOW GO AND CHANGE it inside the index.test.js
+
+```javascript
+test("should sum up two numbers", () => {
+  let result = sum(10, 5); // expectation: 15
+  // here we are CAUSING AN ERROR in purpose
+  expect(result).toBe(15);
+  //but here we are telling that the result will be 5
+  // even if we know that the result is 15 but it s just for error purposes
+});
+//
+
+test("should subtract two numbers", () => {
+  let result = subtract(10, 5); // expectation: 15
+  expect(result).toBe(5);
+});
+```
+
+##### how does it works?
+
+```javascript
+// this below, tells you where is the error
+  ● should sum up  two numbers
+```
+
+#### this is the result when the functions are working FINE
+
+```javascript
+ PASS  ./index.test.js
+  ✓ should sum up two numbers (1 ms)
+  ✓ should subtract two numbers (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        1.451 s
+Ran all test suites.
+```
+
+#### this is the result when the functions have any kind of error
+
+```javascript
+ FAIL  ./index.test.js
+
+  ✓ should sum up two numbers (2 ms)
+
+  ✕ should subtract two numbers (2 ms)
+
+
+
+  ● should subtract two numbers //the problem is inside this function
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 5
+    Received: 2 //this is the result, check the explanation after the code
+
+      11 | test("should subtract two numbers", () => {
+      12 |   let result = subtract(10, 5); // expectation: 15
+    > 13 |   expect(result).toBe(5);
+         |                  ^
+      14 | });
+      15 |
+
+      at Object.<anonymous> (index.test.js:13:18)
+
+
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.411 s
+Ran all test suites.
+```
+
+### the error
+
+```javascript
+// lib.js
+return a / b;
+// index.test.js
+let result = subtract(10, 5);
+```
+
+> WE CREATED 2 FUNCTIONs 1 to sum, and the other to SUBTRACT , i PURPOSELY
+> placed a division symbol inside the subtract function, so we divided 10 / 5 and the result was 2
+> so when jest scanned the functions it read that we "expected 5" and there was the issue.
