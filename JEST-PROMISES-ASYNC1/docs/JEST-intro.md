@@ -295,7 +295,7 @@ let result = subtract(10, 5);
 <hr>
 <br>
 
-### SOME PROGRAMMING JARGON
+### SOME PROGRAMMING JARGON :baguette_bread:
 
 <br>
 
