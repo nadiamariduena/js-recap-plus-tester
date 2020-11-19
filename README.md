@@ -2,8 +2,20 @@
 
 <br>
 
-## JEST / PROMISES 🌻
+## JEST / PROMISES 🌻 💍
 
 - check the next step in the next folder "JEST-PROMISES-ASYNC"
 
-[BASIC SUM FUNCTION](docs/JEST-4_promises.md)
+[BASIC SUM FUNCTION](JEST-PROMISES-ASYNC1/docs/BASIC-SUM-FUNCTION.md)
+
+<br>
+<br>
+<br>
+<hr>
+<br>
+
+#### GO DIRECTLY where the fun starts
+
+## ASYNC - AWAIT :rowing_woman:  :rowing_woman:
+
+[BASIC SUM FUNCTION](JEST-PROMISES-ASYNC5/docs/JEST-4_async-await.md)

@@ -1,8 +1,13 @@
-## JEST / PROMISES 🌻
+## PROMISES / ASYNC AWAIT 🌻
 
-> ASYNC - AWAIT , .then() and .catch()
-> is a way to handle promises that you receive,
-> NOT TO create promises
+<p> ASYNC - AWAIT , .then() and .catch()
+ is a way to handle promises that you receive,
+ NOT TO create promises
+</p>
+
+<br>
+
+ # :rowing_man:
 
 <br>
 
@@ -57,7 +62,7 @@ describe("sweet fruit testing suite", () => {
 <hr>
 <br>
 
-### so back to the promises `
+### BACK to  promises 
 
 ```javascript
 // data-lib.js
@@ -129,7 +134,7 @@ Ran all test suites.
 <hr>
 <br>
 
-## ASYNC AWAIT :art:
+# ASYNC AWAIT :art:
 
 #### HERE WE WILL DEMONSTRATE HOW _JEST_ WORKS WHEN WE DO A MISTAKE, here for example we forgot to add the async .
 
@@ -152,7 +157,9 @@ expect(fruits.length).toBe(3)
 
 ```
 
-## the result of forgetting the await :red_circle:
+<br>
+
+#### the result of forgetting the await :red_circle:
 
 ```javascript
 // here you clearly see that something is wrong, you will notice the difference with the next result.
