@@ -261,6 +261,8 @@ Ran all test suites.
 ```
 
 <br>
+<br>
+<br>
 
 ### AFTER THIS RESULT
 
@@ -285,8 +287,72 @@ const getFruitDataDelayed = () => {
   return new Promise((resolve, reject) => {
     // by calling RESOLVE you automatically EXIT the promise
     resolve(arrFruits);
+    // Since promises can be broken. you also need a way to reject them, theres when the REJECT comes
   });
 };
 
 module.exports = { getFruitsData, getFruitDataDelayed };
+```
+
+#### NOW CREATE ANOTHER TEST , to test what we just did in the data-lib.js
+
+> test("", async () => {
+
+- DONT FORGET TO IMPORT THE OTHER FUNCTION
+
+  `const { getFruitsData, getFruitDataDelayed } = require("./data-lib");`
+  <br>
+
+  #### TO REACH ONLY THE FUNCTION "delayed" , use .only
+
+  - with this , it will only focus in this function:
+
+  `test.only("should get fruit data delayed", async () => {`
+
+  ```javascript
+  //---------------
+  // index.test.js
+  // --------------
+  //
+  describe("sweet fruit testing suite", () => {
+    test.only("should get fruit data delayed", async () => {
+      let fruitsDelayed = await getFruitDataDelayed();
+      expect(fruitsDelayed.length).toBe(4);
+    });
+
+    //
+    //
+    test("should get fruit data", async () => {
+      // Await will wait to the promise : getFruitsData()
+      // to complet then return the data to let fruits
+      let fruits = await getFruitsData();
+      expect(fruits.length).toBe(4);
+    });
+    //
+    //
+  });
+  ```
+
+  #### Now you must to add a TRY AND CATCH in case it fails
+
+  - Here for example
+
+  ```javascript
+  describe("sweet fruit testing suite", () => {
+    test.only("should get fruit data delayed", async () => {
+  // the 2 lines below should be put inside the try and catch
+      let fruitsDelayed = await getFruitDataDelayed();
+      expect(fruitsDelayed.length).toBe(4);
+      //
+    });
+  ```
+
+#### TRY AND CATCH
+
+```javascript
+try {
+  //here if the content here don't match, then catch it with an error
+} catch (err) {
+  // here we kidnap the stalkers errors
+}
 ```

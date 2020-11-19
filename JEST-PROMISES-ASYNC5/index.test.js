@@ -1,6 +1,14 @@
-const { getFruitsData } = require("./data-lib");
+const { getFruitsData, getFruitDataDelayed } = require("./data-lib");
 
 describe("sweet fruit testing suite", () => {
+  test.only("should get fruit data delayed", async () => {
+    try {
+    } catch (err) {}
+
+    let fruitsDelayed = await getFruitDataDelayed();
+    expect(fruitsDelayed.length).toBe(4);
+  });
+
   //
   //
   test("should get fruit data", async () => {
@@ -9,6 +17,6 @@ describe("sweet fruit testing suite", () => {
     let fruits = await getFruitsData();
     expect(fruits.length).toBe(4);
   });
+  //
+  //
 });
-
-

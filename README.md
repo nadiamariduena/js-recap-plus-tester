@@ -16,6 +16,6 @@
 
 #### GO DIRECTLY where the fun starts
 
-## ASYNC - AWAIT :rowing_woman:  :rowing_woman:
+## ASYNC - AWAIT :rowing_woman: :rowing_woman:
 
-[BASIC SUM FUNCTION](JEST-PROMISES-ASYNC5/docs/JEST-4_async-await.md)
+[BASIC SUM FUNCTION](JEST-PROMISES-ASYNC5/docs/JEST-5_async-await.md)

@@ -11,6 +11,7 @@ const getFruitDataDelayed = () => {
   return new Promise((resolve, reject) => {
     // by calling RESOLVE you automatically EXIT the promise
     resolve(arrFruits);
+    // Since promises can be broken. you also need a way to reject them, theres when the REJECT comes
   });
 };
 
