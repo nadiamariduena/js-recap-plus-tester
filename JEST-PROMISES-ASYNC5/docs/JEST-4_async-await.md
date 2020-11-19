@@ -7,7 +7,7 @@
 
 <br>
 
- # :rowing_man:
+# :rowing_man:
 
 <br>
 
@@ -62,7 +62,7 @@ describe("sweet fruit testing suite", () => {
 <hr>
 <br>
 
-### BACK to  promises 
+### BACK to promises
 
 ```javascript
 // data-lib.js
@@ -134,7 +134,28 @@ Ran all test suites.
 <hr>
 <br>
 
-# ASYNC AWAIT :art:
+# ASYNC AWAIT :rowing_woman:
+
+### FIRST LETS START WITH SOME BASIC WAY OF WRAPPING A PROMISE
+
+<br>
+
+- AFTER THE FIRST RESULT , we will make it more professional.
+
+```javascript
+// Promises
+
+const getFruitsData = () => {
+  let arrFruits = ["banana", "cherry", "lemon", "tomato"];
+  // // here i want to return a promise , not an array like so:
+
+  return Promise.resolve(arrFruits);
+};
+
+const getFruitDataDelayed = () => {};
+
+module.exports = { getFruitsData };
+```
 
 #### HERE WE WILL DEMONSTRATE HOW _JEST_ WORKS WHEN WE DO A MISTAKE, here for example we forgot to add the async .
 
@@ -237,4 +258,35 @@ Tests:       2 failed, 3 skipped, 4 passed, 9 total
 Snapshots:   0 total
 Time:        1.475 s
 Ran all test suites.
+```
+
+<br>
+
+### AFTER THIS RESULT
+
+- LETS START BY WRAPPING THE PROMISE in a professional way
+
+> Take the array out of the getFruitsData function and make it global
+
+```javascript
+// ------------
+// data-lib.js
+// ------------
+//
+let arrFruits = ["banana", "cherry", "lemon", "tomato"];
+
+const getFruitsData = () => {
+  return Promise.resolve(arrFruits);
+};
+// --------------------------------------------
+// create a new promises in the second function
+
+const getFruitDataDelayed = () => {
+  return new Promise((resolve, reject) => {
+    // by calling RESOLVE you automatically EXIT the promise
+    resolve(arrFruits);
+  });
+};
+
+module.exports = { getFruitsData, getFruitDataDelayed };
 ```

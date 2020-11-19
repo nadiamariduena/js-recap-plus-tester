@@ -9,23 +9,6 @@ describe("sweet fruit testing suite", () => {
     let fruits = await getFruitsData();
     expect(fruits.length).toBe(4);
   });
-
-  /*
-  
-  
-  
-  
-  
-  
-  
-  */
-  // test("should get fruit data", () => {
-  //   // let fruits = getFruitsData();
-  //   getFruitsData().then((arrFruits) => {
-  //     console.log(arrFruits);
-  //     expect(arrFruits.length).toBe(4);
-  //   });
-  // });
 });
 
-// npm i @types/jest   for auto completion
+
