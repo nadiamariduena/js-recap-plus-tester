@@ -152,7 +152,7 @@ expect(fruits.length).toBe(3)
 
 ```
 
-#### the result of forgetting the await
+## the result of forgetting the await :red_circle:
 
 ```javascript
 // here you clearly see that something is wrong, you will notice the difference with the next result.
@@ -160,29 +160,74 @@ expect(fruits.length).toBe(3)
  FAIL  JEST-PROMISES-ASYNC5/index.test.js
   ● Test suite failed to run
 //
-//  HERE YOU SEE THE ERROR
-    SyntaxError: /home/dci-st119/Documents/all-Desktop/ROBERT-JS-RECAP_plus-JEST/JEST-PROMISES-ASYNC5/index.test.js: 'await' is only allowed within async functions (10:13)
+// HERE IS THE ERROR
+    SyntaxError: /home/dci-st119/Documents/all-Desktop/ROBERT-JS-RECAP_plus-JEST/JEST-PROMISES-ASYNC5/index.test.js: 'await' is only allowed within async functions (9:19)
 
-       8 | // to complet then return the data to let fruits
-       9 |
-    > 10 | let fruits = await getFruitsData()
-         |              ^
-      11 | expect(fruits.length).toBe(3)
+       7 |         // Await will wait to the promise : getFruitsData()
+       8 |   // to complet then return the data to let fruits
+    >  9 |       let fruits = await getFruitsData();
+         |                    ^
+      10 |       expect(fruits.length).toBe(3);
+      11 |   });
       12 |
-      13 |
 
       at Parser._raise (../../../.nvm/versions/node/v13.3.0/lib/node_modules/jest/node_modules/@babel/parser/src/parser/error.js:60:45)
-
- PASS  JEST-PROMISES-ASYNC1/index.test.js //this is another folder, dont care about it
 
 Test Suites: 3 failed, 2 passed, 5 total
 Tests:       2 failed, 3 skipped, 3 passed, 8 total
 Snapshots:   0 total
-Time:        3.107 s
+Time:        1.967 s
 Ran all test suites.
 ```
 
-#####  HERE YOU SEE THE ERROR
+##### THE ERROR
 
->  
-    SyntaxError: /home/dci-st119/Documents/all-Desktop/ROBERT-JS-RECAP_plus-JEST/JEST-PROMISES-ASYNC5/index.test.js: 'await' is only allowed within async functions (10:13)
+```javascript
+//
+SyntaxError: /home/dci-st119/Documents/all-Desktop/ROBERT-JS-RECAP_plus-JEST/JEST-PROMISES-ASYNC5/index.test.js: 'await' is only allowed within async functions (10:13)
+//
+```
+
+<br>
+
+### THE SOLUTION :relieved:
+
+```javascript
+// this one correspond to another folder, dont mind , as the error is on purpose
+ FAIL  JEST-PROMISES-ASYNC3/index.test.js
+  ● sweet fruit testing suite › should get fruit data
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 3
+    Received: undefined
+
+       6 |   test("should get fruit data", () => {
+       7 |     let fruits = getFruitsData();
+    >  8 |     expect(fruits.length).toBe(3);
+         |                           ^
+       9 |     // here you get 3 elements from the array in the data-lib.js
+      10 |   });
+      11 |   //
+
+      at Object.<anonymous> (JEST-PROMISES-ASYNC3/index.test.js:8:27)
+//
+//
+// here in the number 5 , you can see the it PASS, so there was no problem
+ PASS  JEST-PROMISES-ASYNC5/index.test.js
+ PASS  JEST-PROMISES-ASYNC1/index.test.js
+ PASS  JEST-PROMISES-ASYNC4/index.test.js
+  ● Console
+
+    console.log
+      [ 'banana', 'cherry', 'lemon', 'tomato' ]
+
+      at JEST-PROMISES-ASYNC4/index.test.js:9:15
+
+
+Test Suites: 2 failed, 3 passed, 5 total
+Tests:       2 failed, 3 skipped, 4 passed, 9 total
+Snapshots:   0 total
+Time:        1.475 s
+Ran all test suites.
+```
