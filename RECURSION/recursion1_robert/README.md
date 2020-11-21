@@ -103,10 +103,17 @@ familyTreeDisplay(arrayFamily);
 ##### LIKE SO
 
 ```javascript
-const familyTreeDisplay = (arr) => {
+// 2 here you want to loop on the data in step 1
+const familyTreeDisplay = (arr, level = 0) => {
+  // instead of child you can also use item, or whatever you want to identify it.
   arr.forEach((child) => {
-    console.log(child.name);
-    familyTreeDisplay(child.children); //**
+    console.log(child.name, level);
+
+    if (child.children && child.children.length > 0) {
+      // if this child has a child and if this child length is greater than zero, then go down on the tree.
+      // if children have children only then , you can go further down on the tree
+      familyTreeDisplay(child.children, level + 1);
+    }
   });
 };
 
@@ -177,9 +184,64 @@ const familyTreeDisplay = (arr, level = 0) => {
 #### RESULT
 
 ```javascript
+// THE RESULT FOR THIS
+let arrayFamily = [
+  {
+    name: "Tomas Mariduena and Silvestra Quezada",
+    children: [
+      { name: "Lorenzo Mariduena" },
+      { name: "Coronel Marcelino Mariduena" },
+      { name: "Leon Mariduena" },
+      {
+        name: "Juan de Dios Mariduena y Damiana Montero",
+        children: [
+          { name: "Isabel" },
+          { name: "Luis Felipe" },
+          { name: "Horacio" },
+          { name: "Temistocles" },
+          { name: "Guillermo" },
+          { name: "Rosaura" },
+          { name: "Isabel Segunda" },
+          { name: "Isabel tercio" },
+          {
+            name: "Coronel Manuel Lorenzo Mariduena Montero y Dolores Moncada",
+            children: [
+              {
+                name:
+                  "Manuel Ignacio Mariduena Moncada y Yolanda Graciela Alvarado Acosta",
+                children: [
+                  {
+                    name: "Mario Mariduena",
+                    children: [{ name: "Nadia" }, { name: "Angelita" }],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Mercedes Mariduena Quezada y Pedro José Montero Ramos",
+        children: [
+          { name: "Delia" },
+          { name: "General Pedro Jacinto Montero" },
+          { name: "Rosa" },
+          { name: "Francisco" },
+          { name: "Mercedes" },
+          { name: "Jose Lorenzo" },
+          { name: "Eufemia" },
+        ],
+      },
+      { name: "Vicente Mariduena" },
+      { name: "Tomas Mariduena" },
+    ],
+  },
+];
+
+/*
 Tomas Mariduena and Silvestra Quezada 0
 Lorenzo Mariduena 1
-Marcelino Mariduena 1
+Coronel Marcelino Mariduena 1
 Leon Mariduena 1
 Juan de Dios Mariduena y Damiana Montero 1
 Isabel 2
@@ -195,9 +257,18 @@ Manuel Ignacio Mariduena Moncada y Yolanda Graciela Alvarado Acosta 3
 Mario Mariduena 4
 Nadia 5
 Angelita 5
-Mercedes Mariduena 1
+Mercedes Mariduena Quezada y Pedro José Montero Ramos 1
+Delia 2
+General Pedro Jacinto Montero 2
+Rosa 2
+Francisco 2
+Mercedes 2
+Jose Lorenzo 2
+Eufemia 2
 Vicente Mariduena 1
 Tomas Mariduena 1
+
+*/
 ```
 
 <br>
