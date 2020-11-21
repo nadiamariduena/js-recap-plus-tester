@@ -21,7 +21,7 @@ let arrayFamily = [
     name: "Tomas Mariduena and Silvestra Quezada",
     children: [
       { name: "Lorenzo Mariduena" },
-      { name: "Marcelino Mariduena" },
+      { name: "Coronel Marcelino Mariduena" },
       { name: "Leon Mariduena" },
       {
         name: "Juan de Dios Mariduena y Damiana Montero",
@@ -51,7 +51,18 @@ let arrayFamily = [
           },
         ],
       },
-      { name: "Mercedes Mariduena" },
+      {
+        name: "Mercedes Mariduena Quezada y Pedro José Montero Ramos",
+        children: [
+          { name: "Delia" },
+          { name: "General Pedro Jacinto Montero" },
+          { name: "Rosa" },
+          { name: "Francisco" },
+          { name: "Mercedes" },
+          { name: "Jose Lorenzo" },
+          { name: "Eufemia" },
+        ],
+      },
       { name: "Vicente Mariduena" },
       { name: "Tomas Mariduena" },
     ],
