@@ -439,3 +439,9 @@ describe("sweet fruit testing suite", () => {
   //
 });
 ```
+
+##### TO JUST TEST THE FOLDER IN WHICH YOU ARE WORKING
+
+- TYPE THIS
+
+`jest JEST-PROMISES-ASYNC6`

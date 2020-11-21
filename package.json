@@ -18,6 +18,7 @@
   "homepage": "https://github.com/nadiamariduena/js-recap-plus-tester#readme",
   "dependencies": {
     "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.9",
     "node": "^15.2.1"
   }
 }
